@@ -196,7 +196,7 @@ export default function FullProduct() {
                     )}
                   </div>
 
-                  <div className="text-xl font-bold text-[#007F5F] mb-4">
+                  <div className="text-xl font-bold text-white mb-4">
                     {formatPrice(getFinalPrice(product.price, product.discount))} تومان
                   </div>
                 </>
@@ -205,7 +205,7 @@ export default function FullProduct() {
 
             <button
               onClick={addToCart}
-              className="w-full bg-gray-500 hover:bg-[#009C73] text-white font-semibold py-2 rounded-xl transition"
+              className="w-full bg-gray-500 hover:bg-purple-700 text-white font-semibold py-2 rounded-xl transition"
             >
               افزودن به سبد خرید
             </button>
