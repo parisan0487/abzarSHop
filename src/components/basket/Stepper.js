@@ -19,7 +19,7 @@ export default function Stepper({ currentStep }) {
       <div className="absolute top-1/2 right-0 left-0 h-1 bg-gray-300 z-0"></div>
 
       <div
-        className="absolute top-1/2 right-0 h-1 bg-[#00A693] z-10 transition-all duration-300"
+        className="absolute top-1/2 right-0 h-1 bg-purple-500 z-10 transition-all duration-300"
         style={{ width: `${progressPercent}%` }}
       ></div>
 
@@ -30,7 +30,7 @@ export default function Stepper({ currentStep }) {
               "flex flex-col items-center justify-center text-center transition-all",
               "w-20 h-20 rounded-full border-4 p-4 bg-white",
               currentStep >= step.id
-                ? "border-[#44e4d1] text-black"
+                ? "border-purple-900 text-black"
                 : "border-gray-300 text-gray-400"
             )}
           >

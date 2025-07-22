@@ -83,7 +83,7 @@ export default function Basket() {
     <div>
       {!isLoggedIn || cart.items.length === 0 ? (
         <div className="flex flex-col items-center justify-center text-center px-4 py-12">
-          <h2 className="text-xl sm:text-2xl font-semibold text-gray-700">
+          <h2 className="text-xl sm:text-2xl font-semibold text-white">
             سبد خرید شما خالی است
           </h2>
           <p className="text-gray-500 mt-3 mb-8 text-sm sm:text-base">
@@ -91,7 +91,7 @@ export default function Basket() {
           </p>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm sm:text-base bg-green-500 hover:bg-green-600 transition-colors text-white font-medium py-2.5 px-4 rounded-xl"
+            className="inline-flex items-center gap-2 text-sm sm:text-base bg-purple-500 hover:bg-purple-600 transition-colors text-white font-medium py-2.5 px-4 rounded-xl"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
