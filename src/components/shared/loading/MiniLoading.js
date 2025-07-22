@@ -11,7 +11,7 @@ export default function MiniLoading() {
                         'radial-gradient(farthest-side at bottom left, #0000 calc(100% - 6px), currentColor calc(100% - 5px) 99%, #0000) top right / 50% 50% content-box content-box, ' +
                         'radial-gradient(farthest-side at top, #0000 calc(100% - 6px), currentColor calc(100% - 5px) 99%, #0000) bottom / 100% 50% content-box content-box',
                     backgroundRepeat: 'no-repeat',
-                    color: '#00786b',
+                    color: '#9333ea',
                 }}
             ></div>
         </div>

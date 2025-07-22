@@ -58,8 +58,8 @@ export default function OrdersPage() {
   }
 
   return (
-    <div className="p-6 bg-[#f8f9fa] text-right rtl">
-      <h1 className="text-2xl font-bold text-[#00A693] border-b-4 border-[#00A693] w-fit pb-2 mb-6">
+    <div className="p-6  text-right rtl">
+      <h1 className="text-2xl font-bold text-white border-b-4 border-purple-900 w-fit pb-2 mb-6">
         سفارش‌های من
       </h1>
 

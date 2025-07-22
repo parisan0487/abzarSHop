@@ -25,29 +25,29 @@ export default function AccountPage() {
   const items = [
     {
       title: "آدرس‌ها",
-      icon: <MapPin className="w-10 h-10 text-[#00A693]" />,
+      icon: <MapPin className="w-10 h-10 text-purple-900" />,
       href: "/account/address",
     },
     {
-      title: "سفارش‌ها",
-      icon: <Package className="w-10 h-10 text-[#00A693]" />,
-      href: "/account/orders",
+      title: "سبدخرید",
+      icon: <Package className="w-10 h-10 text-purple-900" />,
+      href: "/basket",
     },
     {
       title: "جزئیات حساب",
-      icon: <UserRound className="w-10 h-10 text-[#00A693]" />,
+      icon: <UserRound className="w-10 h-10 text-purple-900" />,
       href: "/account/profile",
     },
   ];
 
   return (
     <div className="p-4">
-      <div className="bg-white p-6 rounded-2xl space-y-6 shadow-lg">
+      <div className="bg-[#20223a] p-6 rounded-2xl space-y-6 shadow-lg">
         <div className="text-center">
-          <h2 className="text-xl font-bold text-[#00A693] mb-2">
-            سلام {user?.name || "کاربر عزیز"} 👋
+          <h2 className="text-xl font-bold text-white mb-2">
+            سلام {user?.name || "کاربر عزیز"} 
           </h2>
-          <p className="text-gray-700 text-sm">
+          <p className="text-gray-400 text-sm">
             برای مدیریت حساب کاربری خود، یکی از گزینه‌های زیر را انتخاب کنید
           </p>
         </div>
@@ -57,10 +57,10 @@ export default function AccountPage() {
             <Link
               key={title}
               href={href}
-              className="bg-[#F5F7FF] hover:bg-[#E0F9F4] p-6 rounded-xl flex flex-col items-center justify-center border border-gray-200 hover:shadow-xl transition-all duration-200"
+              className="bg-[#231C35] hover:bg-gray-800 p-6 rounded-xl flex flex-col items-center justify-center border border-gray-200 hover:shadow-xl transition-all duration-200"
             >
               {icon}
-              <p className="mt-4 text-gray-800 font-bold">{title}</p>
+              <p className="mt-4 text-gray-300 font-bold">{title}</p>
             </Link>
           ))}
         </div>

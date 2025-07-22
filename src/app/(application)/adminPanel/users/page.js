@@ -70,16 +70,16 @@ export default function UsersPage() {
 
     return (
         <div className="min-h-screen p-6" dir="rtl">
-            <h1 className="mb-8 text-3xl font-extrabold text-[#00786b] drop-shadow-md">
+            <h1 className="mb-8 text-3xl font-extrabold text-white drop-shadow-md">
                 مدیریت کاربران
             </h1>
 
             {loading ? (
                 <MiniLoading />
             ) : (
-                <div className="overflow-x-auto rounded-xl shadow-lg border border-[#00a693] bg-white">
+                <div className="overflow-x-auto rounded-xl shadow-lg border border-white bg-white">
                     <table className="min-w-full text-sm text-gray-800">
-                        <thead className="bg-[#00a693] text-white select-none">
+                        <thead className="bg-purple-900 text-white select-none">
                             <tr>
                                 <th className="text-right py-4 px-6 font-semibold tracking-wider">نام</th>
                                 <th className="text-right py-4 px-6 font-semibold tracking-wider">شماره</th>
@@ -104,7 +104,7 @@ export default function UsersPage() {
                                     <td className="py-3 px-6">{user.phone || "-"}</td>
                                     <td className="py-3 px-6 font-medium">
                                         <span
-                                            className={`px-3 py-1 rounded-full text-white ${user.role === "admin" ? "bg-green-600" : "bg-gray-400"
+                                            className={`px-3 py-1 rounded-full text-white ${user.role === "admin" ? "bg-purple-900" : "bg-gray-400"
                                                 }`}
                                         >
                                             {user.role === "admin" ? "ادمین" : "کاربر"}
@@ -116,7 +116,7 @@ export default function UsersPage() {
                                                 updateRole(user._id, user.role === "admin" ? "user" : "admin")
                                             }
                                             disabled={updatingUserId === user._id}
-                                            className={`text-[#00786b] font-semibold hover:underline transition ${updatingUserId === user._id ? "opacity-60 cursor-wait" : ""
+                                            className={`text-purple-900 font-semibold hover:underline transition ${updatingUserId === user._id ? "opacity-60 cursor-wait" : ""
                                                 }`}
                                         >
                                             {updatingUserId === user._id ? "در حال تغییر..." : "تغییر نقش"}

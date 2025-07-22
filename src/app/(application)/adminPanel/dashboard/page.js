@@ -7,7 +7,7 @@ import Fetch from "@/utils/Fetch";
 
 function StatCard({ icon, label, value, suffix }) {
     return (
-        <div className="relative bg-gradient-to-tr from-[#00a693] to-[#007f66] text-white rounded-xl shadow-lg p-6 flex items-center gap-5 transform transition-transform hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,166,147,0.5)]">
+        <div className="relative bg-gradient-to-tr from-purple-900 to-purple-500 text-white rounded-xl shadow-lg p-6 flex items-center gap-5 transform transition-transform hover:scale-105 hover:shadow-[0_8px_30px_rgba(147,51,234,0.5)]">
             <div className="p-4 bg-white bg-opacity-25 rounded-full flex items-center justify-center text-[#00a693]">
                 {icon}
             </div>
@@ -46,7 +46,7 @@ export default function AdminDashboard() {
 
     return (
         <div className=" p-6 sm:p-8 text-right">
-            <h1 className="mb-10 text-3xl sm:text-4xl font-extrabold text-[#00a693]">
+            <h1 className="mb-10 text-3xl sm:text-4xl font-extrabold text-white">
                 داشبورد آماری
             </h1>
 

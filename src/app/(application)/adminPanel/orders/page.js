@@ -30,8 +30,8 @@ export default function AdminOrdersPage() {
     if (loading) return <MiniLoading />;
 
     return (
-        <div className="p-6 bg-[#f8f9fa] min-h-screen text-right rtl">
-            <h1 className="mb-8 text-3xl font-extrabold text-[#00786b] drop-shadow-md">
+        <div className="p-6 min-h-screen text-right rtl">
+            <h1 className="mb-8 text-3xl font-extrabold text-white drop-shadow-md">
                 سفارشات کاربران
             </h1>
 
@@ -48,13 +48,13 @@ export default function AdminOrdersPage() {
                         >
                             <div className="border-b pb-3 space-y-2">
                                 <p className="font-medium text-gray-700">
-                                    👤 <span className="text-[#00A693]">{"-"}</span> ({order.firstName})
+                                    👤 <span className="text-purple-900">{"-"}</span> ({order.firstName})
                                 </p>
                                 <p className="text-sm text-gray-600">
                                     شماره سفارش: <span className="font-semibold">{order._id}</span>
                                 </p>
                                 <p className="text-sm text-gray-600">
-                                    مبلغ: <span className="text-[#00A693] font-bold">{order.amount.toLocaleString()} تومان</span>
+                                    مبلغ: <span className="text-purple-900 font-bold">{order.amount.toLocaleString()} تومان</span>
                                 </p>
                                 <p className="text-sm text-gray-600">
                                     وضعیت:{" "}
@@ -71,14 +71,14 @@ export default function AdminOrdersPage() {
                             </div>
 
                             <div className="space-y-2 text-sm">
-                                <p className="font-semibold text-[#00A693]">📦 اطلاعات ارسال:</p>
+                                <p className="font-semibold text-purple-900">📦 اطلاعات ارسال:</p>
                                 <p>نام گیرنده: {order.firstName} {order.lastName}</p>
                                 <p>تلفن: {order.phone}</p>
                                 <p>آدرس: {order.province}، {order.city}، {order.address}</p>
                             </div>
 
                             <div className="pt-3 border-t space-y-2">
-                                <p className="font-semibold text-[#00A693]">🛒 محصولات سفارش داده شده:</p>
+                                <p className="font-semibold text-purple-900">🛒 محصولات سفارش داده شده:</p>
                                 <ul className="list-disc pr-5 space-y-1 text-sm text-gray-700">
                                     {order.items.map((item) => (
                                         <li key={item._id}>

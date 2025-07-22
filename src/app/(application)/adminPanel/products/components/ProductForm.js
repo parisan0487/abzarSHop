@@ -164,11 +164,11 @@ export default function ProductForm({ initialData = {}, onSubmit }) {
     return (
         <form
             onSubmit={handleSubmit}
-            className="space-y-6 bg-white p-6 rounded shadow text-right"
+            className="space-y-6 bg-gray-300 p-6 rounded shadow text-right"
             dir="rtl"
         >
             <div>
-                <label className="block mb-1 font-semibold text-[#00a693]">نام محصول</label>
+                <label className="block mb-1 font-semibold text-purple-900">نام محصول</label>
                 <input
                     name="name"
                     value={formData.name}
@@ -179,7 +179,7 @@ export default function ProductForm({ initialData = {}, onSubmit }) {
 
             <div className="grid grid-cols-2 gap-4">
                 <div>
-                    <label className="block mb-1 font-semibold text-[#00a693]">قیمت</label>
+                    <label className="block mb-1 font-semibold text-purple-900">قیمت</label>
                     <input
                         name="price"
                         type="number"
@@ -189,7 +189,7 @@ export default function ProductForm({ initialData = {}, onSubmit }) {
                     />
                 </div>
                 <div>
-                    <label className="block mb-1 font-semibold text-[#00a693]">تخفیف (اختیاری)</label>
+                    <label className="block mb-1 font-semibold text-purple-900">تخفیف (اختیاری)</label>
                     <input
                         name="discount"
                         type="number"
@@ -201,7 +201,7 @@ export default function ProductForm({ initialData = {}, onSubmit }) {
             </div>
 
             <div>
-                <label className="block mb-1 font-semibold text-[#00a693]">توضیحات</label>
+                <label className="block mb-1 font-semibold text-purple-900">توضیحات</label>
                 <textarea
                     name="description"
                     value={formData.description}
@@ -211,7 +211,7 @@ export default function ProductForm({ initialData = {}, onSubmit }) {
             </div>
 
             <div>
-                <label className="block mb-1 font-semibold text-[#00a693]">تولیدکننده</label>
+                <label className="block mb-1 font-semibold text-purple-900">تولیدکننده</label>
                 <input
                     name="producter"
                     value={formData.producter}
@@ -222,7 +222,7 @@ export default function ProductForm({ initialData = {}, onSubmit }) {
 
             {/* دسته‌بندی‌ها */}
             <div>
-                <label className="block mb-1 font-semibold text-[#00a693]">دسته‌بندی‌ها</label>
+                <label className="block mb-1 font-semibold text-purple-900">دسته‌بندی‌ها</label>
                 <div className="grid sm:grid-cols-2 gap-2 mt-2">
                     {availableCategories.map((cat) => (
                         <label key={cat} className="flex items-center gap-2 cursor-pointer">
@@ -249,7 +249,7 @@ export default function ProductForm({ initialData = {}, onSubmit }) {
 
             {/* تصاویر */}
             <div className="mb-6">
-                <label className="block mb-2 font-semibold text-[#00a693]">آپلود تصویر محصول</label>
+                <label className="block mb-2 font-semibold text-purple-900">آپلود تصویر محصول</label>
 
                 <input
                     type="file"
@@ -287,7 +287,7 @@ export default function ProductForm({ initialData = {}, onSubmit }) {
 
             {/* ویژگی‌ها */}
             <div>
-                <label className="block mb-1 font-semibold text-[#00a693]">ویژگی‌ها</label>
+                <label className="block mb-1 font-semibold text-purple-900">ویژگی‌ها</label>
                 <div className="sm:flex gap-2 grid">
                     <input
                         name="featureInput"
@@ -299,7 +299,7 @@ export default function ProductForm({ initialData = {}, onSubmit }) {
                     <button
                         type="button"
                         onClick={() => addToList("feature", "featureInput")}
-                        className="bg-[#00a693] text-white px-4 py-2 rounded"
+                        className="bg-purple-900 text-white px-4 py-2 rounded"
                     >
                         افزودن
                     </button>
@@ -308,7 +308,7 @@ export default function ProductForm({ initialData = {}, onSubmit }) {
                     {formData.feature.map((f, idx) => (
                         <span
                             key={idx}
-                            className="bg-[#e0f7f4] text-[#00786b] px-3 py-1 rounded-full flex items-center gap-2"
+                            className="bg-[#e0f7f4] text-purple-900 px-3 py-1 rounded-full flex items-center gap-2"
                         >
                             {f}
                             <button
@@ -325,7 +325,7 @@ export default function ProductForm({ initialData = {}, onSubmit }) {
 
             {/* واریانت‌ها */}
             <div>
-                <label className="block mb-1 font-semibold text-[#00a693]">تنوع‌ها (variants)</label>
+                <label className="block mb-1 font-semibold text-purple-900">تنوع‌ها (variants)</label>
                 <div className="sm:flex gap-2 grid">
                     <input
                         name="color"
@@ -361,7 +361,7 @@ export default function ProductForm({ initialData = {}, onSubmit }) {
                 <button
                     type="button"
                     onClick={addVariant}
-                    className="mt-5 bg-[#00a693] text-white px-4 py-2 rounded"
+                    className="mt-5 bg-purple-900 text-white px-4 py-2 rounded"
                 >
                     افزودن تنوع
                 </button>
@@ -393,7 +393,7 @@ export default function ProductForm({ initialData = {}, onSubmit }) {
             <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-[#00a693] text-white px-6 py-2 rounded font-bold hover:bg-[#00917d] disabled:opacity-50"
+                className="bg-purple-900 text-white px-6 py-2 rounded font-bold hover:bg-purple-700 disabled:opacity-50"
             >
                 {isSubmitting ? "در حال ذخیره..." : "ذخیره محصول"}
             </button>

@@ -90,10 +90,10 @@ export default function Login() {
       />
 
 
-      <form className="flex flex-col items-center gap-4 w-full max-w-[300px] mx-auto" onSubmit={handleSubmit} dir="rtl">
+      <form className="flex flex-col items-center gap-6 w-full max-w-[320px] mx-auto p-6 bg-white/10 backdrop-blur-md rounded-2xl shadow-md" onSubmit={handleSubmit} dir="rtl">
 
         <div className="w-full flex flex-col gap-2">
-          <label className="text-purple-900 font-semibold">
+          <label className="text-purple-900 font-bold text-sm">
             شماره تلفن
           </label>
           <input
@@ -101,34 +101,31 @@ export default function Login() {
             placeholder="مثال: 09123456789"
             value={phone}
             onChange={(e) => setPhone(toEnglishDigits(e.target.value))}
-            className="rounded-lg px-3 py-4 w-full bg-[#9c9c9c60] outline-2 outline-[#707070] focus:outline-purple-700"
+            className="rounded-xl px-4 py-3 w-full bg-white/30 text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-purple-700 focus:outline-none transition-all duration-300"
           />
         </div>
 
-
         <div className="w-full flex flex-col gap-2">
-          <label className="text-purple-900 font-semibold">
+          <label className="text-purple-900 font-bold text-sm">
             رمزعبور
           </label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(toEnglishDigits(e.target.value))}
-            className="rounded-lg mb-8 px-3 py-3 w-full bg-[#9c9c9c60]  outline-2 outline-[#707070] focus:outline-purple-700"
+            className="rounded-xl px-4 py-3 w-full bg-white/30 text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-purple-700 focus:outline-none transition-all duration-300"
           />
         </div>
-
 
         <input
           type="submit"
           value="ورود"
           disabled={isSubmitting}
-          className="w-full px-3 py-4 rounded-full bg-purple-900 text-[#efefef] font-semibold text-sm cursor-pointer hover:bg-purple-700 hover:text-black transition-all duration-300"
+          className="w-full px-4 py-3 rounded-full bg-purple-700 hover:bg-purple-800 text-white font-semibold text-sm cursor-pointer transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         />
 
-
-        <span className="text-[#707070] text-sm">
-          حسای کاربری نداری؟ <Link href="/singup" className="text-purple-700 hover:underline">ثبت نام</Link>
+        <span className="text-gray-600 text-sm">
+          حساب کاربری نداری؟ <Link href="/singup" className="text-purple-700 font-semibold hover:underline">ثبت‌نام</Link>
         </span>
       </form>
     </>

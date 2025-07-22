@@ -24,7 +24,7 @@ export default function NewProductPage() {
     return (
         <div className="max-w-2xl mx-auto mt-8 px-4">
             <h1
-                className="text-2xl font-bold text-[#00786b] mb-6 border-b pb-2"
+                className="text-2xl font-bold text-white mb-6 border-b pb-2"
                 dir="rtl"
             >
                 افزودن محصول جدید

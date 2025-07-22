@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-[#2b1b3b] bg-[url(/assets/img/download8.svg)] text-white px-6 py-8 mt-20 mb-8 rounded-[1.5rem]">
+    <footer className="bg-[#20223a] bg-[url(/assets/img/download8.svg)] text-white px-6 py-8 mt-20 mb-8 rounded-[1.5rem]">
       <div className="grid grid-cols-1 md:grid-cols-5 gap-20 text-right text-base leading-relaxed font-medium">
 
         {/* ستون 1 */}
