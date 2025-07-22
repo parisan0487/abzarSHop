@@ -51,15 +51,15 @@ export default function Payment() {
   if (loading) return <MiniLoading />;
 
   return (
-    <div className="min-h-screen bg-gray-50 p-5 sm:p-10">
+    <div className="min-h-screen p-5 sm:p-10">
       <Stepper currentStep={3} />
-      <div className="max-w-xl mx-auto mt-12 bg-white rounded-2xl shadow-lg p-8 text-center">
-        <h2 className="text-2xl sm:text-3xl font-bold text-[#00A693] mb-4">
+      <div className="max-w-xl mx-auto mt-12 bg-[#20223a] rounded-2xl shadow-lg p-8 text-center">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
           آماده‌ی پرداخت هستید؟
         </h2>
-        <p className="text-gray-600 mb-8 text-base sm:text-lg">
+        <p className="text-gray-300 mb-8 text-base sm:text-lg">
           مبلغ قابل پرداخت:{" "}
-          <span className="font-semibold text-black">{amount?.toLocaleString()} تومان</span>
+          <span className="font-semibold text-white">{amount?.toLocaleString()} تومان</span>
           <br />
           با کلیک روی دکمه زیر، به درگاه بانکی متصل خواهید شد
         </p>
@@ -67,7 +67,7 @@ export default function Payment() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             onClick={handlePay}
-            className="flex items-center justify-center gap-2 bg-[#00A693] hover:bg-[#008b7a] transition-all duration-300 text-white px-6 py-3 rounded-xl text-lg shadow-md w-full sm:w-auto"
+            className="flex items-center justify-center gap-2 bg-purple-900 hover:bg-purple-700 transition-all duration-300 text-white px-6 py-3 rounded-xl text-lg shadow-md w-full sm:w-auto"
           >
             <CreditCard className="w-5 h-5" />
             پرداخت امن
@@ -75,7 +75,7 @@ export default function Payment() {
 
           <button
             onClick={() => router.back()}
-            className="flex items-center justify-center gap-2 border border-gray-300 text-gray-600 hover:bg-gray-100 transition-all duration-300 px-6 py-3 rounded-xl text-base w-full sm:w-auto"
+            className="flex items-center justify-center gap-2 border border-gray-300 text-white hover:bg-purple-900 transition-all duration-300 px-6 py-3 rounded-xl text-base w-full sm:w-auto"
           >
             <ArrowRight className="w-4 h-4" />
             بازگشت

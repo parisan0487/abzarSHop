@@ -115,12 +115,12 @@ export default function Basket() {
           <div className="w-full md:w-2/3 min-w-0">
             <div className="space-y-8 mb-12">
               {cart.items.map((item) => (
-                <div key={item.product._id} className="flex flex-col md:flex-row-reverse justify-between items-center bg-white rounded-xl shadow-md p-4">
+                <div key={item.product._id} className="flex flex-col md:flex-row-reverse justify-between items-center bg-[#20223a] rounded-xl shadow-md p-4">
                   <div className="flex items-center gap-4 w-full md:w-auto justify-center md:justify-start">
                     <div>
-                      <h3 className="text-base font-semibold truncate w-40">{item.product?.name}</h3>
-                      <p className="text-sm text-[#00A693]">{item.product?.price ?? 0} تومان</p>
-                      <p className="text-sm text-[#00A693]">تعداد: {item.quantity}</p>
+                      <h3 className="text-base font-semibold truncate text-white w-40">{item.product?.name}</h3>
+                      <p className="text-sm text-purple-700">{item.product?.price ?? 0} تومان</p>
+                      <p className="text-sm text-purple-700">تعداد: {item.quantity}</p>
                     </div>
                     <Image
                       src={item.product?.images[0] || "/no-image.jpg"}
@@ -136,7 +136,7 @@ export default function Basket() {
                     <button
                       onClick={() => handleQuantityChange(item.product._id, "decrease")}
                       disabled={loadingItems[item.product._id]}
-                      className="bg-[#00A693] text-white px-3 py-1.5 rounded-full hover:bg-[#008B7A] disabled:opacity-50"
+                      className="bg-purple-700 text-white px-3 py-1.5 rounded-full hover:bg-purple-500 disabled:opacity-50"
                     >
                       {loadingItems[item.product._id] ? "..." : "-"}
                     </button>
@@ -146,7 +146,7 @@ export default function Basket() {
                     <button
                       onClick={() => handleQuantityChange(item.product._id, "increase")}
                       disabled={loadingItems[item.product._id]}
-                      className="bg-[#44e4d1] text-white px-3 py-1.5 rounded-full hover:bg-[#29c6b5] disabled:opacity-50"
+                      className="bg-purple-700 text-white px-3 py-1.5 rounded-full hover:bg-purple-500 disabled:opacity-50"
                     >
                       {loadingItems[item.product._id] ? "..." : "+"}
                     </button>
@@ -157,25 +157,22 @@ export default function Basket() {
           </div>
 
           {/* پرداخت */}
-          <div className="w-full md:w-1/3 bg-white p-6 rounded-xl shadow-lg">
-            <h3 className="text-2xl font-bold mb-4 text-[#00A693]">جزئیات پرداخت</h3>
+          <div className="w-full md:w-1/3 bg-[#20223a] p-6 rounded-xl shadow-lg">
+            <h3 className="text-2xl font-bold mb-4 text-white">جزئیات پرداخت</h3>
             <div className="mb-6">
-              <p className="text-lg text-[#00A693]">مبلغ کل: {totalPrice.toLocaleString()} تومان</p>
+              <p className="text-lg text-gray-300">مبلغ کل: {totalPrice.toLocaleString()} تومان</p>
             </div>
+
             <div className="mb-6">
-              <label className="block text-sm text-[#00A693] mb-2">کد تخفیف</label>
-              <div className="flex flex-col sm:flex-row gap-2">
-                <input type="text" className="w-full p-2 border border-[#44e4d1] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#44e4d1]" />
-                <button className="bg-[#00A693] text-white sm:w-24 w-full rounded-lg py-2 hover:bg-[#008B7A]">
-                  اعمال کد
-                </button>
-              </div>
+              <div className="w-full h-[1px] border-t border-dashed border-purple-500"></div>
             </div>
+
+
             <div className="mb-6">
-              <p className="text-lg text-[#00A693]">مبلغ قابل پرداخت: {totalPrice.toLocaleString()} تومان</p>
+              <p className="text-lg text-white">مجموع: {totalPrice.toLocaleString()} تومان</p>
             </div>
             <Link href="/basket/checkout">
-              <button className="bg-[#44e4d1] text-white px-6 py-3 rounded-full shadow-md hover:bg-[#29c6b5] w-full">
+              <button className="bg-purple-900 text-white px-6 py-3 rounded-full shadow-md hover:bg-purple-700 w-full">
                 ادامه مراحل خرید
               </button>
             </Link>

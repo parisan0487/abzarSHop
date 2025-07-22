@@ -142,7 +142,7 @@ export default function Checkout() {
           placeholder={placeholder}
           value={formData[name]}
           onChange={handleChange}
-          className={`p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00A693] outline-none text-end`}
+          className={`p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-900 outline-none text-end`}
         />
       )}
       {errors[name] && <p className="text-red-500 text-sm mt-1 text-end">{errors[name]}</p>}
@@ -154,13 +154,13 @@ export default function Checkout() {
       <Stepper currentStep={2} />
       <div className="min-h-screen overflow-hidden">
         <div className="flex justify-center items-center">
-          <div className="w-full max-w-4xl bg-white rounded-2xl overflow-hidden">
+          <div className="w-full max-w-4xl bg-[#20223a] rounded-2xl overflow-hidden">
             <form
               onSubmit={handleSubmit}
               className="grid grid-cols-1 shadow-xl gap-6 p-6 sm:p-10"
             >
               <div>
-                <h1 className="text-3xl font-bold text-[#00A693] mb-10 text-center">
+                <h1 className="text-3xl font-bold text-white mb-10 text-center">
                   جزئیات صورت‌حساب
                 </h1>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -175,7 +175,7 @@ export default function Checkout() {
                 </div>
                 <button
                   type="submit"
-                  className="mt-8 w-full bg-[#00A693] text-white p-3 rounded-lg hover:bg-[#008B7A] transition-all duration-300 text-lg"
+                  className="mt-8 w-full bg-purple-900 text-white p-3 rounded-lg hover:bg-purple-700 transition-all duration-300 text-lg"
                 >
                   ثبت سفارش
                 </button>
@@ -184,7 +184,7 @@ export default function Checkout() {
               <Link href="/basket">
                 <button
                   type="button"
-                  className="flex items-center justify-center gap-2 border border-gray-300 text-gray-600 hover:bg-gray-100 transition-all duration-300 px-6 py-3 rounded-xl text-base w-full sm:w-auto"
+                  className="flex items-center justify-center gap-2 border border-gray-300 text-white hover:bg-purple-900 transition-all duration-300 px-6 py-3 rounded-xl text-base w-full sm:w-auto"
                 >
                   <ArrowRight className="w-4 h-4" />
                   بازگشت
