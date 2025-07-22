@@ -60,24 +60,27 @@ export default function WhyUsSection() {
                     مورد نیاز، و کاربردهای متنوع است.
                 </p>
 
-                <div className="space-y-4">
-                    {stats.map((stat, index) => (
-                        <div key={stat.label}>
-                            <div className="flex justify-between mb-1 text-sm font-medium text-gray-200">
-                                <span>{stat.label}:</span>
-                                <span>{stat.value}%</span>
-                            </div>
-                            <div className="w-full bg-gray-700 rounded-full h-2">
-                                <motion.div
+                <div
+                            className="space-y-4 p-6 rounded-xl bg-white/5 backdrop-blur-md border border-white/10"
+                            dir="rtl"
+                          >
+                            {stats.map((stat, index) => (
+                              <div key={stat.label}>
+                                <div className="flex justify-between mb-1 text-sm font-medium text-gray-200">
+                                  <span>{stat.label}:</span>
+                                  <span>{stat.value.toLocaleString('fa')}٪</span>
+                                </div>
+                                <div className="w-full bg-gray-700 rounded-full h-2">
+                                  <motion.div
                                     className="bg-purple-700 h-2 rounded-full"
                                     initial={{ width: 0 }}
                                     animate={filled ? { width: `${stat.value}%` } : { width: 0 }}
                                     transition={{ duration: 1, delay: 0.2 + index * 0.2 }}
-                                />
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                                  />
+                                </div>
+                              </div>
+                            ))}
+                          </div>
             </motion.div>
         </section>
     )
