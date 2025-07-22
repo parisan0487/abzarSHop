@@ -63,7 +63,7 @@ export default function SearchNav () {
             <Link
               href={`/products/${item.slug}`}
               key={item.id}
-              className="flex items-center justify-between gap-4 p-2 hover:bg-gray-100 rounded-xl transition-colors duration-200 cursor-pointer"
+              className="flex items-center justify-between gap-4 p-2 hover:bg-gray-800 rounded-xl transition-colors duration-200 cursor-pointer"
             >
               <div className="flex-shrink-0 w-12 h-12 overflow-hidden rounded-xl bg-gray-200">
                 {item.images?.[0] ? (

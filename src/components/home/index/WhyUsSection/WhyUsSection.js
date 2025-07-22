@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
+import { motion, useInView } from "framer-motion"
 
 const stats = [
     { label: "رضایت مشتری", value: 85 },
@@ -10,16 +11,28 @@ const stats = [
 ]
 
 export default function WhyUsSection() {
+    const ref = useRef(null)
+    const isInView = useInView(ref, { once: true }) // فقط یک بار انیمیشن اجرا شود
     const [filled, setFilled] = useState(false)
 
     useEffect(() => {
-        setTimeout(() => setFilled(true), 300)
-    }, [])
+        if (isInView) {
+            setFilled(true)
+        }
+    }, [isInView])
 
     return (
-        <section className=" text-white py-12 px-6 md:px-16 sm:mt-30 mt-20 rounded-[1.5rem] flex flex-col md:flex-row items-center gap-8">
+        <section
+            ref={ref}
+            className="text-white py-12 px-6 md:px-16 sm:mt-30 mt-20 rounded-[1.5rem] flex flex-col md:flex-row items-center gap-8"
+        >
             {/* تصویر */}
-            <div className="md:w-1/2 w-full">
+            <motion.div
+                className="md:w-1/2 w-full"
+                initial={{ opacity: 0, x: 50 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6 }}
+            >
                 <div className="rounded-[1rem] overflow-hidden">
                     <Image
                         src="/assets/img/home-img.jpg"
@@ -29,10 +42,15 @@ export default function WhyUsSection() {
                         className="object-cover w-full h-auto"
                     />
                 </div>
-            </div>
+            </motion.div>
 
             {/* متن و نمودار */}
-            <div className="md:w-1/2 w-full text-right">
+            <motion.div
+                className="md:w-1/2 w-full text-right"
+                initial={{ opacity: 0, x: -50 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 }}
+            >
                 <h2 className="text-[23px] sm:text-2xl md:text-3xl font-bold mb-4">
                     چرا باید ما رو برای خرید <span className="text-purple-700">انتخاب</span> کنید ؟
                 </h2>
@@ -43,22 +61,24 @@ export default function WhyUsSection() {
                 </p>
 
                 <div className="space-y-4">
-                    {stats.map((stat) => (
+                    {stats.map((stat, index) => (
                         <div key={stat.label}>
                             <div className="flex justify-between mb-1 text-sm font-medium text-gray-200">
                                 <span>{stat.label}:</span>
                                 <span>{stat.value}%</span>
                             </div>
                             <div className="w-full bg-gray-700 rounded-full h-2">
-                                <div
-                                    className="bg-purple-700 h-2 rounded-full transition-all duration-1000"
-                                    style={{ width: filled ? `${stat.value}%` : "0%" }}
+                                <motion.div
+                                    className="bg-purple-700 h-2 rounded-full"
+                                    initial={{ width: 0 }}
+                                    animate={filled ? { width: `${stat.value}%` } : { width: 0 }}
+                                    transition={{ duration: 1, delay: 0.2 + index * 0.2 }}
                                 />
                             </div>
                         </div>
                     ))}
                 </div>
-            </div>
+            </motion.div>
         </section>
     )
 }

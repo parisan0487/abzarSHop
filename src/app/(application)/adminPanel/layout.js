@@ -28,7 +28,7 @@ export default function AdminLayout({ children }) {
       try {
         const token = localStorage.getItem("token");
         if (!token) {
-          router.push("/register");
+          router.push("/login");
           return;
         }
 
@@ -41,7 +41,7 @@ export default function AdminLayout({ children }) {
           setUser(userData);
         }
       } catch (error) {
-        router.push("/register");
+        router.push("/login");
       }
     };
 

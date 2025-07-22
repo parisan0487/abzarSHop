@@ -37,7 +37,7 @@ export default function Navbar() {
     checkAuth();
   }, []);
 
-  const linkHref = isLoggedIn ? "/account" : "/register";
+  const linkHref = isLoggedIn ? "/account" : "/singup";
 
   const navLinks = [
     { href: "/contact", label: "تماس با ما" },
@@ -71,7 +71,7 @@ export default function Navbar() {
               <li key={item.href} className="relative group">
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-1 relative text-white hover:text-[#CB11BA]`}
+                  className={`flex items-center gap-1 relative text-white hover:text-purple-700`}
                 >
                   {item.label}
                 </Link>
@@ -84,7 +84,7 @@ export default function Navbar() {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <p className="flex items-center gap-1 cursor-pointer relative group text-white hover:text-[#CB11BA] transition-all">
+            <p className="flex items-center gap-1 cursor-pointer relative group text-white hover:text-purple-700 transition-all">
               <span className="text-2xl mb-2 transform group-hover:translate-x-1 transition-transform duration-300">
               &#8964;
               </span>
@@ -103,7 +103,7 @@ export default function Navbar() {
                   <li key={item.href} className="relative group">
                     <Link
                       href={item.href}
-                      className="block px-4 py-2 rounded-md text-black hover:text-[#CB11BA] bg-[#FFFFFF]  transition-all duration-300 font-medium"
+                      className="block px-4 py-2 rounded-md text-black hover:text-purple-700 bg-[#FFFFFF]  transition-all duration-300 font-medium"
                     >
                       {item.label}
                     </Link>

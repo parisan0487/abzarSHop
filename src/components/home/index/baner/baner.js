@@ -26,7 +26,7 @@ export default function Baner() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className="text-center lg:text-right flex flex-col gap-4"
+          className="text-center lg:text-right flex flex-col gap-4 lg:mb-16"
         >
           <motion.h2
             variants={itemVariants}

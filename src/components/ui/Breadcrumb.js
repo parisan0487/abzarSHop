@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Breadcrumb({ items }) {
   return (
-    <div className="border-t border-gray-100 py-6 flex flex-row-reverse items-center gap-x-1 text-gray-500 font-medium">
+    <div className="py-6 flex flex-row-reverse items-center gap-x-1 text-white font-medium">
       {items.map((item, i) => (
         <div
           key={item.href}
@@ -10,8 +10,8 @@ export default function Breadcrumb({ items }) {
         >
           <Link
             href={item.href}
-            className={`transition-colors duration-200 hover:text-[#44e4d1] ${
-              i + 1 === items.length ? "text-[#00A693] font-semibold" : ""
+            className={`transition-colors duration-200 hover:text-purple-700 ${
+              i + 1 === items.length ? "text-white font-semibold" : ""
             }`}
           >
             {item.text}
@@ -26,7 +26,7 @@ export default function Breadcrumb({ items }) {
             >
               <path
                 d="M15 18L9 12L15 6"
-                stroke="#44e4d1"
+                stroke="#59168b"
                 strokeWidth={2}
                 strokeLinecap="round"
                 strokeLinejoin="round"

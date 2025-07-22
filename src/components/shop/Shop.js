@@ -7,6 +7,7 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 import { getFinalPrice, getDiscountPercent, formatPrice } from "@/utils/Price";
 import toast from "react-hot-toast";
 import Fetch from "@/utils/Fetch";
+import ProductCard from "../product/ProductCard";
 
 
 export default function ProductShop({ data }) {
@@ -137,28 +138,28 @@ export default function ProductShop({ data }) {
         ]}
       />
       <div className="flex flex-col md:flex-row px-4 py-6 gap-6">
-        <div className="block md:hidden px-2 mb-4">
+        <div className="block text-white md:hidden px-2 mb-4">
           <input
             type="text"
-            placeholder="جست و جو کنید"
+            placeholder="...جستجو محصولات"
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
               setCurrentPage(1);
             }}
-            className="w-full bg-gray-200 px-4 py-3 mb-2 rounded-lg text-right outline-0"
+            className="w-full bg-[#20223a] px-4 py-3 mb-2 rounded-lg text-right outline-0"
           />
           <button
-            className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md w-36"
+            className="bg-[#20223a] text-white px-4 py-2 rounded-md w-36"
             onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
           >
             {isMobileFilterOpen ? "بستن فیلترها" : "نمایش فیلترها"}
           </button>
 
           {isMobileFilterOpen && (
-            <div className="bg-gray-100 mt-4 p-4 rounded-lg space-y-4">
+            <div className="bg-[#20223a] mt-4 p-4 rounded-lg space-y-4">
               <div>
-                <p className="text-center text-gray-700 font-bold border-b pb-1 mb-2">
+                <p className="text-center text-white font-bold border-b pb-1 mb-2">
                   فیلتر بر اساس رنگ
                 </p>
                 <div className="flex flex-wrap gap-2 justify-end">
@@ -174,7 +175,7 @@ export default function ProductShop({ data }) {
                             setSelectedColors
                           )
                         }
-                        className={`w-8 h-8 rounded-full border-2 ${isSelected ? "border-[#44e4d1]" : "border-gray-400"
+                        className={`w-8 h-8 rounded-full border-2 ${isSelected ? "border-purple-700" : "border-gray-400"
                           }`}
                         style={{ backgroundColor: colorMap[color] }}
                       />
@@ -184,7 +185,7 @@ export default function ProductShop({ data }) {
               </div>
 
               <div>
-                <p className="text-center text-gray-700 font-bold border-b pb-1 mb-2">
+                <p className="text-center text-white font-bold border-b pb-1 mb-2">
                   فیلتر بر اساس سایز
                 </p>
                 <div className="flex flex-wrap gap-2 justify-end">
@@ -192,8 +193,8 @@ export default function ProductShop({ data }) {
                     <button
                       key={size}
                       className={`px-3 py-1 rounded-full text-sm border ${selectedSizes.includes(size)
-                        ? "bg-[#44e4d1] text-white border-[#44e4d1]"
-                        : "text-gray-700 border-gray-300 hover:bg-gray-100"
+                        ? "bg-gray-500 text-white border-[#44e4d1]"
+                        : "text-black border-gray-300 hover:bg-gray-100"
                         }`}
                       onClick={() =>
                         toggleSelection(size, selectedSizes, setSelectedSizes)
@@ -218,172 +219,8 @@ export default function ProductShop({ data }) {
 
               return (
                 <div
-                  key={product.id}
-                  className="rounded-xl p-3 bg-gray-100 shadow-lg flex flex-col gap-2"
-                >
-                  <Link href={`/products/${product.slug}`}>
-                    <div className="relative w-full h-52 overflow-hidden rounded-lg bg-gray-100 cursor-pointer">
-                      <img
-                        src={mainImage}
-                        alt={product.name}
-                        className="w-full h-full object-cover"
-                      />
-
-                      {product.discount && (
-                        <span className="absolute top-2 left-2 bg-[#44e4d1] text-white text-xs px-2 py-1 rounded-md shadow-md">
-                          {product.discountPercent}%
-                        </span>
-                      )}
-                    </div>
-                  </Link>
-
-                  <div className="flex gap-1 mt-1">
-                    {imagesArray.map((img, i) => (
-                      <div
-                        key={i}
-                        className={`w-10 h-10 rounded-md overflow-hidden cursor-pointer border ${mainImage === img
-                          ? "border-[#44e4d1]"
-                          : "border-transparent"
-                          }`}
-                        onClick={(e) =>
-                          handleThumbnailClick(product.id, img, e)
-                        }
-                      >
-                        <img
-                          src={img}
-                          alt={`thumb-${i}`}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-
-                  <Link href={`/products/${product.slug}`}>
-                    <h2 className="text-center font-medium text-gray-800 cursor-pointer hover:text-[#44e4d1]">
-                      {product.name}
-                    </h2>
-                  </Link>
-
-                  {product.discount ? (
-                    <>
-                      <div className="flex items-center gap-1 text-sm text-gray-600">
-                        <p className="line-through">
-                          {formatPrice(product.price)}
-                        </p>
-                      </div>
-
-                      <div className="flex justify-between items-center mt-auto">
-                        <div className="flex">
-                          <span className="text-black font-bold text-lg">
-                            {formatPrice(product.finalPrice)}
-                          </span>
-                          <p className="text-gray-400 text-sm ml-1">تومان</p>
-                        </div>
-
-                        <button
-                          className="bg-[#44e4d1] text-white px-3 py-1 rounded-lg text-sm hover:bg-[#00A693]"
-                          onClick={() => addToCart(product._id)}
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="25"
-                            height="34"
-                            viewBox="0 0 25 24"
-                            fill="none"
-                            className="stroke-white group-hover:stroke-[#fff]"
-                          >
-                            <path
-                              d="M20 9.5L19.2896 6.89465C19.0157 5.89005 18.8787 5.38775 18.5978 5.00946C18.318 4.63273 17.9378 4.34234 17.5008 4.17152C17.0619 4 16.5413 4 15.5 4M5 9.5L5.7104 6.89465C5.98432 5.89005 6.12128 5.38775 6.40221 5.00946C6.68199 4.63273 7.06216 4.34234 7.49922 4.17152C7.93808 4 8.45872 4 9.5 4"
-                              strokeWidth="1.5"
-                            ></path>
-                            <path
-                              d="M9.5 4C9.5 3.44772 9.94772 3 10.5 3H14.5C15.0523 3 15.5 3.44772 15.5 4C15.5 4.55228 15.0523 5 14.5 5H10.5C9.94772 5 9.5 4.55228 9.5 4Z"
-                              strokeWidth="1.5"
-                            ></path>
-                            <path
-                              d="M8.5 13V17"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            ></path>
-                            <path
-                              d="M16.5 13V17"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            ></path>
-                            <path
-                              d="M12.5 13V17"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            ></path>
-                            <path
-                              d="M4.36425 16.4552C4.90992 18.6379 5.18275 19.7292 5.99654 20.3646C6.81032 21 7.93525 21 10.1851 21H14.8158C17.0656 21 18.1906 21 19.0044 20.3646C19.8181 19.7292 20.091 18.6379 20.6366 16.4552C21.4946 13.0234 21.9236 11.3075 21.0227 10.1538C20.1219 9 18.3532 9 14.8158 9H10.1851C6.64769 9 4.87899 9 3.97816 10.1538C3.44937 10.831 3.37879 11.702 3.58422 13"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                            ></path>
-                          </svg>
-                        </button>
-                      </div>
-                    </>
-                  ) : (
-                    <div className="flex justify-between items-center mt-auto">
-                      <div className="flex">
-                        <span className="text-black font-bold text-lg">
-                          {formatPrice(product.price)}
-                        </span>
-                        <p className="text-gray-400 text-sm ml-1">تومان</p>
-                      </div>
-
-                      <button
-                        className="bg-[#44e4d1] text-white px-3 py-1 rounded-lg text-sm hover:bg-[#00A693]"
-                        onClick={() => addToCart(product._id)}
-                        
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="25"
-                          height="34"
-                          viewBox="0 0 25 24"
-                          fill="none"
-                          className="stroke-white group-hover:stroke-[#fff]"
-                        >
-                          <path
-                            d="M20 9.5L19.2896 6.89465C19.0157 5.89005 18.8787 5.38775 18.5978 5.00946C18.318 4.63273 17.9378 4.34234 17.5008 4.17152C17.0619 4 16.5413 4 15.5 4M5 9.5L5.7104 6.89465C5.98432 5.89005 6.12128 5.38775 6.40221 5.00946C6.68199 4.63273 7.06216 4.34234 7.49922 4.17152C7.93808 4 8.45872 4 9.5 4"
-                            strokeWidth="1.5"
-                          ></path>
-                          <path
-                            d="M9.5 4C9.5 3.44772 9.94772 3 10.5 3H14.5C15.0523 3 15.5 3.44772 15.5 4C15.5 4.55228 15.0523 5 14.5 5H10.5C9.94772 5 9.5 4.55228 9.5 4Z"
-                            strokeWidth="1.5"
-                          ></path>
-                          <path
-                            d="M8.5 13V17"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          ></path>
-                          <path
-                            d="M16.5 13V17"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          ></path>
-                          <path
-                            d="M12.5 13V17"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          ></path>
-                          <path
-                            d="M4.36425 16.4552C4.90992 18.6379 5.18275 19.7292 5.99654 20.3646C6.81032 21 7.93525 21 10.1851 21H14.8158C17.0656 21 18.1906 21 19.0044 20.3646C19.8181 19.7292 20.091 18.6379 20.6366 16.4552C21.4946 13.0234 21.9236 11.3075 21.0227 10.1538C20.1219 9 18.3532 9 14.8158 9H10.1851C6.64769 9 4.87899 9 3.97816 10.1538C3.44937 10.831 3.37879 11.702 3.58422 13"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                          ></path>
-                        </svg>
-                      </button>
-                    </div>
-                  )}
+                  key={product.id}>
+                  <ProductCard product={product}/>
                 </div>
               );
             })}
@@ -397,7 +234,7 @@ export default function ProductShop({ data }) {
                   key={page}
                   onClick={() => setCurrentPage(page)}
                   className={`px-3 py-1 rounded-md text-sm border transition-all ${currentPage === page
-                    ? "bg-black text-white border-black"
+                    ? "bg-black text-white border-gray-300"
                     : "text-gray-700 border-gray-300 hover:bg-gray-100"
                     }`}
                 >
@@ -409,21 +246,21 @@ export default function ProductShop({ data }) {
         </div>
 
         <div className="w-full md:w-3/12 hidden md:block">
-          <div className="space-y-2 pb-4 ">
+          <div className="space-y-2 text-white pb-4">
             <input
               type="text"
-              placeholder="جست و جو کنید"
+              placeholder="...جستجو محصولات"
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
                 setCurrentPage(1);
               }}
-              className="w-full bg-gray-100 px-4 p-4 rounded-lg text-right outline-0"
+              className="w-full bg-[#20223a]  px-4 p-4 rounded-lg text-right outline-0"
             />
           </div>
 
-          <div className="bg-gray-100 p-5 pb-4 rounded-2xl">
-            <p className="text-lg font-bold text-center mb-4 text-gray-600 border-b">
+          <div className="bg-[#20223a]  p-5 pb-4 rounded-2xl">
+            <p className="text-lg font-bold text-center mb-4 text-white border-b">
               فیلتر بر اساس رنگ
             </p>
             <div className="flex flex-wrap gap-3 justify-end">
@@ -435,7 +272,7 @@ export default function ProductShop({ data }) {
                     onClick={() =>
                       toggleSelection(color, selectedColors, setSelectedColors)
                     }
-                    className={`w-8 h-8 rounded-full border-2 ${isSelected ? "border-[#44e4d1]" : "border-gray-400"
+                    className={`w-8 h-8 rounded-full border-2 ${isSelected ? "border-purple-900 " : "border-gray-400"
                       }`}
                     style={{ backgroundColor: colorMap[color] }}
                   />
@@ -444,8 +281,8 @@ export default function ProductShop({ data }) {
             </div>
           </div>
 
-          <div className="bg-gray-100 p-5 pb-4 mt-5 rounded-2xl">
-            <h3 className="text-lg font-bold text-center mb-4 border-b text-gray-600">
+          <div className="bg-[#20223a]  p-5 pb-4 mt-5 rounded-2xl">
+            <h3 className="text-lg font-bold text-center mb-4 border-b text-white">
               فیلتر بر اساس سایز
             </h3>
             <div className="flex flex-wrap gap-2 justify-end">
@@ -453,8 +290,8 @@ export default function ProductShop({ data }) {
                 <button
                   key={size}
                   className={`px-3 py-1 rounded-full text-sm border ${selectedSizes.includes(size)
-                    ? "bg-[#44e4d1] text-white border-[#44e4d1]"
-                    : "text-gray-700 border-gray-300 hover:bg-gray-100"
+                    ? "bg-gray-500 text-white border-[#44e4d1]"
+                    : "text-black border-gray-300 hover:bg-gray-100"
                     }`}
                   onClick={() =>
                     toggleSelection(size, selectedSizes, setSelectedSizes)
