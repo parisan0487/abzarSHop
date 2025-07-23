@@ -20,6 +20,12 @@ export default function ProductShop({ data }) {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [minPriceInput, setMinPriceInput] = useState("");
+  const [maxPriceInput, setMaxPriceInput] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+
+  const isPriceFiltered = minPrice || maxPrice;
 
 
   const availableColors = ["سبز", "سفید", "مشکی", "ابی", "قرمز", "زرد"];
@@ -59,7 +65,17 @@ export default function ProductShop({ data }) {
         )
         : true;
 
-    return matchesSearch && matchesColor && matchesSize;
+    const matchesPrice =
+      minPrice || maxPrice
+        ? (() => {
+          const price = product.price || 0;
+          const meetsMin = minPrice ? price >= parseInt(minPrice) : true;
+          const meetsMax = maxPrice ? price <= parseInt(maxPrice) : true;
+          return meetsMin && meetsMax;
+        })()
+        : true;
+
+    return matchesSearch && matchesColor && matchesSize && matchesPrice;
   });
 
 
@@ -82,34 +98,6 @@ export default function ProductShop({ data }) {
       discountPercent,
     };
   });
-
-
-
-  const handleThumbnailClick = (productId, imgSrc, e) => {
-    e.stopPropagation();
-    setActiveImages((prev) => ({
-      ...prev,
-      [productId]: imgSrc,
-    }));
-  };
-
-  const addToCart = async (productId) => {
-    try {
-      const response = await Fetch.post(
-        "/api/cart/add",
-        {
-          productId,
-          quantity: 1,
-        },
-        {
-          token: true,
-        }
-      );
-      toast.success("محصول با موفقیت به سبد خرید اضافه شد");
-    } catch (err) {
-      toast.error("خطا در افزودن محصول به سبد خرید");
-    }
-  };
 
 
   if (loading) return <Loading className="-top-30" />;
@@ -138,7 +126,7 @@ export default function ProductShop({ data }) {
         ]}
       />
       <div className="flex flex-col md:flex-row px-4 py-6 gap-6">
-        <div className="block text-white md:hidden px-2 mb-4">
+        <div className="block md:hidden px-2 mb-4">
           <input
             type="text"
             placeholder="...جستجو محصولات"
@@ -184,6 +172,51 @@ export default function ProductShop({ data }) {
                 </div>
               </div>
 
+              <div className="bg-[#20223a] p-5 pb-4 mt-5 rounded-2xl">
+                <h3 className="text-lg font-bold text-center mb-4 border-b text-white">
+                  فیلتر بر اساس قیمت
+                </h3>
+                <div className="flex flex-col gap-2">
+                  <input
+                    type="number"
+                    value={minPriceInput}
+                    onChange={(e) => setMinPriceInput(e.target.value)}
+                    placeholder="حداقل قیمت(از)"
+                    className="w-full bg-gray-100 px-4 py-2 rounded-lg text-right outline-0"
+                  />
+                  <input
+                    type="number"
+                    value={maxPriceInput}
+                    onChange={(e) => setMaxPriceInput(e.target.value)}
+                    placeholder="حداکثر قیمت(تا)"
+                    className="w-full bg-gray-100 px-4 py-2 rounded-lg text-right outline-0"
+                  />
+
+                  <button
+                    onClick={() => {
+                      if (isPriceFiltered) {
+                        // بازنشانی فیلتر قیمت
+                        setMinPrice("");
+                        setMaxPrice("");
+                        setMinPriceInput("");
+                        setMaxPriceInput("");
+                      } else {
+                        // اعمال فیلتر قیمت
+                        setMinPrice(minPriceInput);
+                        setMaxPrice(maxPriceInput);
+                      }
+                      setCurrentPage(1);
+                    }}
+                    className={`mt-3 ${isPriceFiltered
+                      ? "bg-gray-500 hover:bg-gray-600"
+                      : "bg-purple-700 hover:bg-purple-800"
+                      } text-white py-2 px-4 rounded-lg transition`}
+                  >
+                    {isPriceFiltered ? "بازنشانی فیلتر قیمت" : "اعمال فیلتر قیمت"}
+                  </button>
+                </div>
+              </div>
+
               <div>
                 <p className="text-center text-white font-bold border-b pb-1 mb-2">
                   فیلتر بر اساس سایز
@@ -220,7 +253,7 @@ export default function ProductShop({ data }) {
               return (
                 <div
                   key={product.id}>
-                  <ProductCard product={product}/>
+                  <ProductCard product={product} />
                 </div>
               );
             })}
@@ -280,6 +313,53 @@ export default function ProductShop({ data }) {
               })}
             </div>
           </div>
+
+          <div className="bg-[#20223a] p-5 pb-4 mt-5 rounded-2xl">
+            <h3 className="text-lg font-bold text-center mb-4 border-b text-white">
+              فیلتر بر اساس قیمت
+            </h3>
+            <div className="flex flex-col gap-2">
+              <input
+                type="number"
+                value={minPriceInput}
+                onChange={(e) => setMinPriceInput(e.target.value)}
+                placeholder="حداقل قیمت(از)"
+                className="w-full bg-gray-100 px-4 py-2 rounded-lg text-right outline-0"
+              />
+              <input
+                type="number"
+                value={maxPriceInput}
+                onChange={(e) => setMaxPriceInput(e.target.value)}
+                placeholder="حداکثر قیمت(تا)"
+                className="w-full bg-gray-100 px-4 py-2 rounded-lg text-right outline-0"
+              />
+
+              <button
+                onClick={() => {
+                  if (isPriceFiltered) {
+                    // بازنشانی فیلتر قیمت
+                    setMinPrice("");
+                    setMaxPrice("");
+                    setMinPriceInput("");
+                    setMaxPriceInput("");
+                  } else {
+                    // اعمال فیلتر قیمت
+                    setMinPrice(minPriceInput);
+                    setMaxPrice(maxPriceInput);
+                  }
+                  setCurrentPage(1);
+                }}
+                className={`mt-3 ${isPriceFiltered
+                  ? "bg-gray-500 hover:bg-gray-600"
+                  : "bg-purple-700 hover:bg-purple-800"
+                  } text-white py-2 px-4 rounded-lg transition`}
+              >
+                {isPriceFiltered ? "بازنشانی فیلتر قیمت" : "اعمال فیلتر قیمت"}
+              </button>
+            </div>
+          </div>
+
+
 
           <div className="bg-[#20223a]  p-5 pb-4 mt-5 rounded-2xl">
             <h3 className="text-lg font-bold text-center mb-4 border-b text-white">
