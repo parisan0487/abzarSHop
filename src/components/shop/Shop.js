@@ -132,7 +132,7 @@ export default function ProductShop({ data }) {
               setSearchQuery(e.target.value);
               setCurrentPage(1);
             }}
-            className="w-full bg-[#20223a] px-4 py-3 mb-2 rounded-lg text-right outline-0"
+            className="w-full bg-[#20223a] px-4 py-3 mb-2 rounded-lg text-right outline-0 text-white placeholder-white"
           />
           <button
             className="bg-[#20223a] text-white px-4 py-2 rounded-md w-36"
@@ -222,15 +222,15 @@ export default function ProductShop({ data }) {
                   {availableSizes.map((size) => (
                     <button
                       key={size}
-                      className={`px-3 py-1 rounded-full text-sm border ${selectedSizes.includes(size)
-                        ? "bg-gray-500 text-white border-[#44e4d1]"
-                        : "text-black border-gray-300 hover:bg-gray-100"
-                        }`}
                       onClick={() =>
                         toggleSelection(size, selectedSizes, setSelectedSizes)
                       }
+                      className={`px-3 py-1 rounded-full text-sm border transition-colors duration-200
+                    ${selectedSizes.includes(size)
+                          ? "bg-gray-500 text-white border-[#44e4d1] hover:bg-gray-600"
+                          : "bg-white text-black border-gray-300 hover:bg-gray-100"}`}
                     >
-                      {size.toUpperCase()}
+                      {size}
                     </button>
                   ))}
                 </div>
@@ -276,7 +276,7 @@ export default function ProductShop({ data }) {
         </div>
 
         <div className="w-full md:w-3/12 hidden md:block">
-          <div className="space-y-2 text-white pb-4">
+          <div className="space-y-2 pb-4">
             <input
               type="text"
               placeholder="...جستجو محصولات"
@@ -285,7 +285,7 @@ export default function ProductShop({ data }) {
                 setSearchQuery(e.target.value);
                 setCurrentPage(1);
               }}
-              className="w-full bg-[#20223a]  px-4 p-4 rounded-lg text-right outline-0"
+              className="w-full bg-[#20223a]  px-4 p-4 rounded-lg text-right text-white placeholder-white outline-0"
             />
           </div>
 
@@ -366,15 +366,15 @@ export default function ProductShop({ data }) {
               {availableSizes.map((size) => (
                 <button
                   key={size}
-                  className={`px-3 py-1 rounded-full text-sm border ${selectedSizes.includes(size)
-                    ? "bg-gray-500 text-white border-[#44e4d1]"
-                    : "text-black border-gray-300 hover:bg-gray-100"
-                    }`}
                   onClick={() =>
                     toggleSelection(size, selectedSizes, setSelectedSizes)
                   }
+                  className={`px-3 py-1 rounded-full text-sm border transition-colors duration-200
+                  ${selectedSizes.includes(size)
+                      ? "bg-gray-500 text-white border-[#44e4d1] hover:bg-gray-600"
+                      : "bg-white text-black border-gray-300 hover:bg-gray-100"}`}
                 >
-                  {size.toUpperCase()}
+                  {size}
                 </button>
               ))}
             </div>
