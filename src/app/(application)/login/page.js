@@ -90,7 +90,7 @@ export default function Login() {
       />
 
 
-      <form className="flex flex-col items-center gap-6 w-full max-w-[320px] mx-auto p-6 bg-white/10 backdrop-blur-md rounded-2xl shadow-md" onSubmit={handleSubmit} dir="rtl">
+      <form className="flex flex-col items-center gap-6 w-full max-w-[320px] mx-auto p-6 bg-[#20223a] backdrop-blur-md rounded-2xl shadow-md" onSubmit={handleSubmit} dir="rtl">
 
         <div className="w-full flex flex-col gap-2">
           <label className="text-purple-900 font-bold text-sm">
@@ -101,7 +101,7 @@ export default function Login() {
             placeholder="مثال: 09123456789"
             value={phone}
             onChange={(e) => setPhone(toEnglishDigits(e.target.value))}
-            className="rounded-xl px-4 py-3 w-full bg-white/30 text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-purple-700 focus:outline-none transition-all duration-300"
+            className="rounded-xl px-4 py-3 w-full bg-white/40 text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-purple-700 focus:outline-none transition-all duration-300"
           />
         </div>
 
@@ -113,7 +113,7 @@ export default function Login() {
             type="password"
             value={password}
             onChange={(e) => setPassword(toEnglishDigits(e.target.value))}
-            className="rounded-xl px-4 py-3 w-full bg-white/30 text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-purple-700 focus:outline-none transition-all duration-300"
+            className="rounded-xl px-4 py-3 w-full bg-white/40 text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-purple-700 focus:outline-none transition-all duration-300"
           />
         </div>
 
