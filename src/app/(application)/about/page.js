@@ -46,7 +46,7 @@ export default function About() {
         >
           <div className="rounded-[1rem] overflow-hidden">
             <Image
-              src="/assets/img/home-img.jpg"
+              src="/assets/img/هواکش.webp"
               alt="watch"
               width={600}
               height={400}

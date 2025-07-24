@@ -139,6 +139,7 @@ export default function ProductForm({ initialData = {}, onSubmit }) {
         try {
             setUploading(true);
 
+            // https://yourdomain.com/api/upload/image
             const res = await fetch("https://researchback.onrender.com/api/upload/image", {
                 method: "POST",
                 body: formData,

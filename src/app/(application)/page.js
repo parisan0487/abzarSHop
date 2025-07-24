@@ -43,7 +43,7 @@ export default function Home() {
   const dummyProducts = [
     {
       _id: "1",
-      name: "تی‌شرت پسرانه",
+      name: "پریز مشکی",
       id: "p001",
       price: 150000,
       discount: 20,
@@ -51,7 +51,7 @@ export default function Home() {
       feature: ["100٪ نخی", "قابل شست‌وشو", "رنگ ثابت"],
       categories: ["new", "offer"],
       producter: "برند کودک شادینا",
-      images: ["/assets/img/home-imgg.png", "/assets/img/home-imgg.png"],
+      images: ["/assets/img/mm.png"],
       variants: [
         { color: "قرمز", size: "M", stock: 10, price: 150000 },
         { color: "آبی", size: "L", stock: 5, price: 150000 },
@@ -60,7 +60,7 @@ export default function Home() {
     },
     {
       _id: "2",
-      name: "شلوار راحتی دخترانه",
+      name: "پریز مشکی",
       id: "p002",
       price: 180000,
       discount: 10,
@@ -68,7 +68,7 @@ export default function Home() {
       feature: ["سبک", "پارچه ضدحساسیت", "دوخت مقاوم"],
       categories: ["best"],
       producter: "شادینا مد",
-      images: ["/assets/img/home-imgg.png"],
+      images: ["/assets/img/mm.png"],
       variants: [
         { color: "صورتی", size: "S", stock: 7, price: 180000 },
         { color: "بنفش", size: "M", stock: 3, price: 180000 },
@@ -77,7 +77,7 @@ export default function Home() {
     },
     {
       _id: "3",
-      name: "کاپشن زمستانی بچه‌گانه",
+      name: "پریز مشکی",
       id: "p003",
       price: 450000,
       discount: 30,
@@ -85,7 +85,7 @@ export default function Home() {
       feature: ["ضدآب", "کلاه‌دار", "آستر پشم‌شیشه"],
       categories: ["new", "best"],
       producter: "کودک اسپورت",
-      images: ["/assets/img/home-imgg.png"],
+      images: ["/assets/img/mm.png"],
       variants: [
         { color: "مشکی", size: "XL", stock: 2, price: 450000 },
       ],
@@ -93,7 +93,7 @@ export default function Home() {
     },
     {
       _id: "4",
-      name: "کاپشن زمستانی بچه‌گانه",
+      name: "پریز مشکی",
       id: "p003",
       price: 450000,
       discount: 30,
@@ -101,7 +101,7 @@ export default function Home() {
       feature: ["ضدآب", "کلاه‌دار", "آستر پشم‌شیشه"],
       categories: ["new", "best"],
       producter: "کودک اسپورت",
-      images: ["/assets/img/home-imgg.png"],
+      images: ["/assets/img/mm.png"],
       variants: [
         { color: "مشکی", size: "XL", stock: 2, price: 450000 },
       ],
@@ -109,7 +109,7 @@ export default function Home() {
     },
     {
       _id: "5",
-      name: "کاپشن زمستانی بچه‌گانه",
+      name: "پریز مشکی",
       id: "p003",
       price: 450000,
       discount: 30,
@@ -117,7 +117,7 @@ export default function Home() {
       feature: ["ضدآب", "کلاه‌دار", "آستر پشم‌شیشه"],
       categories: ["new", "best"],
       producter: "کودک اسپورت",
-      images: ["/assets/img/home-imgg.png"],
+      images: ["/assets/img/mm.png"],
       variants: [
         { color: "مشکی", size: "XL", stock: 2, price: 450000 },
       ],
@@ -125,7 +125,7 @@ export default function Home() {
     },
     {
       _id: "6",
-      name: "کاپشن زمستانی بچه‌گانه",
+      name: "پریز مشکی",
       id: "p003",
       price: 450000,
       discount: 30,
@@ -133,7 +133,7 @@ export default function Home() {
       feature: ["ضدآب", "کلاه‌دار", "آستر پشم‌شیشه"],
       categories: ["new", "best"],
       producter: "کودک اسپورت",
-      images: ["/assets/img/home-imgg.png"],
+      images: ["/assets/img/mm.png"],
       variants: [
         { color: "مشکی", size: "XL", stock: 2, price: 450000 },
       ],

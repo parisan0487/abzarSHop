@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { MapPin, Package, UserRound } from "lucide-react";
+import { MapPin, ShoppingBasket, UserRound } from "lucide-react";
 import Fetch from "@/utils/Fetch";
 
 export default function AccountPage() {
@@ -30,7 +30,7 @@ export default function AccountPage() {
     },
     {
       title: "سبدخرید",
-      icon: <Package className="w-10 h-10 text-purple-900" />,
+      icon: <ShoppingBasket className="w-10 h-10 text-purple-900" />,
       href: "/basket",
     },
     {

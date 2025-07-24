@@ -32,7 +32,7 @@ export default function Baner() {
             variants={itemVariants}
             className="px-4 py-11 text-3xl font-bold text-center"
           >
-            <span className="text-purple-700">انواع ساعت های ست</span>{" "}
+            <span className="text-purple-700">انواع فن های ست</span>{" "}
             <span className="text-white">با بهترین قیمت و کیفیت !</span>
           </motion.h2>
 
@@ -53,7 +53,7 @@ export default function Baner() {
             className="flex justify-center lg:justify-start gap-4 mb-10"
           >
             <button className="flex-1 max-w-[200px] min-w-[120px] bg-purple-700 hover:bg-fuchsia-700 text-white px-4 py-2 rounded-lg flex items-center justify-between gap-2 text-sm">
-              <span>مشاهده ساعت‌های ما</span>
+              <span>مشاهده محصولات ما</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -76,7 +76,7 @@ export default function Baner() {
             }}
           >
             <Image
-              src="/assets/img/home-img.jpg"
+              src="/assets/img/هواکش.webp"
               alt="watch"
               fill
               className="object-cover"

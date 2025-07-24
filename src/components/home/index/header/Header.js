@@ -14,7 +14,7 @@ export default function Header() {
             transition={{ duration: 0.7 }}
             className="text-2xl md:text-3xl font-bold mb-4 leading-relaxed"
           >
-            با کمک ما <span className="text-purple-700">استایلتو</span> جذاب‌تر کن!!
+            با کمک ما <span className="text-purple-700">خونه ات رو</span> جذاب‌تر کن!!
           </motion.h2>
 
           <motion.div
@@ -39,7 +39,7 @@ export default function Header() {
             className="flex flex-wrap gap-4 mb-10"
           >
             <button className="bg-purple-700 hover:bg-fuchsia-700 text-white px-6 py-2 rounded-lg flex items-center gap-2">
-              <span>مشاهده ساعت های ما</span>
+              <span>مشاهده محصولات ما</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -78,7 +78,7 @@ export default function Header() {
             }}
           >
             <Image
-              src="/assets/img/home-img.jpg"
+              src="/assets/img/هواکش.webp"
               alt="watch"
               fill
               className="object-cover"
@@ -92,7 +92,7 @@ export default function Header() {
             }}
           >
             <Image
-              src="/assets/img/home-img4.jpg"
+              src="/assets/img/k.webp"
               alt="watch 2"
               fill
               className="object-cover"

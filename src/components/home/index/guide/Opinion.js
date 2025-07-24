@@ -5,9 +5,9 @@ import Link from 'next/link';
 export default function Opinion() {
   return (
     <div
-      className="rounded-3xl overflow-hidden relative text-white py-8 px-6 w-full mb-10 shadow-xl"
+      className="rounded-3xl overflow-hidden relative text-black py-8 px-6 w-full mb-10 shadow-xl"
       style={{
-        backgroundImage: "url('/assets/img/baner2.jpg')",
+        backgroundImage: "url('/assets/img/k.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
@@ -18,7 +18,7 @@ export default function Opinion() {
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <h2 className="text-2xl sm:text-3xl font-bold leading-relaxed">
           شیک ترین و جدید ترین{" "}
-          <span className="text-purple-700">ساعت های دنیا</span>
+          <span className="text-purple-700">پریزهای دنیا</span>
           <br />
           بدون واسطه از ما
         </h2>

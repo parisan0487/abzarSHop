@@ -1,12 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import React from "react";
-import Link from "next/link";
 import Loading from "../shared/loading/Loading";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import { getFinalPrice, getDiscountPercent, formatPrice } from "@/utils/Price";
-import toast from "react-hot-toast";
-import Fetch from "@/utils/Fetch";
 import ProductCard from "../product/ProductCard";
 
 
